@@ -1,0 +1,13 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Ignore .yy files for language statistics
+*.yy linguist-generated=true
+
+# Ignore extension files for language statistics
+extensions/* linguist-vendored=true
+
+# Force CRLF for GameMaker files
+*.yy text eol=crlf
+*.gml text eol=crlf
+*.yyp text eol=crlf

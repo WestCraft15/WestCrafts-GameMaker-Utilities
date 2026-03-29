@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_west_settings",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_west_settings",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/WestCraft/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
