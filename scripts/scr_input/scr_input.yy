@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_state_machine",
+  "%Name":"scr_input",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_state_machine",
+  "name":"scr_input",
   "parent":{
     "name":"Systems",
     "path":"folders/WestCraft/Scripts/Systems.yy",

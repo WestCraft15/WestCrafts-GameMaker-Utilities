@@ -23,3 +23,19 @@
     #macro DEFAULT_TERMINAL_VELOCITY 4
     
 #endregion Collision
+
+#region Input
+    
+    // The default value of global.controller_deadzone.
+    #macro DEFAULT_CONTROLLER_DEADZONE 0.8
+    
+    /// @desc This function sets up the input system. Use add_input("id", [new Bind(BIND_TYPE, vk_key/gp_button)]) to create new inputs.
+    /// @ignore
+    function init_input()
+    {
+        add_input("left",  [new Bind(BIND_TYPE.KEYBOARD, vk_left),  new Bind(BIND_TYPE.GAMEPAD_AXIS_NEGATIVE, gp_axislh)])
+        add_input("right", [new Bind(BIND_TYPE.KEYBOARD, vk_right), new Bind(BIND_TYPE.GAMEPAD_AXIS_POSITIVE, gp_axislh)])
+        add_input("jump",  [new Bind(BIND_TYPE.KEYBOARD, vk_space), new Bind(BIND_TYPE.GAMEPAD_BUTTON, gp_face1)])
+    }
+    
+#endregion Input
