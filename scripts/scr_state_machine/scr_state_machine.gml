@@ -12,7 +12,7 @@ function sm_init()
 /// @arg {function} transition_out The function to run when this state is changed from. See sm_example_transition_out() for documentation.
 function sm_add_state(_id, _step, _transition_in = undefined, _transition_out = undefined)
 {
-    state_machine[$ _id] = sm_create_state(_step, _transition_in, _transition_out)
+    state_machine[$ _id] = new State(_step, _transition_in, _transition_out)
     if (current_state == undefined) current_state = _id
 }
 
@@ -23,7 +23,7 @@ function sm_add_state(_id, _step, _transition_in = undefined, _transition_out = 
 /// @return {struct} A struct representing a state.
 /// @pure
 /// @ignore
-function sm_create_state(_step, _transition_in = undefined, _transition_out = undefined) constructor
+function State(_step, _transition_in = undefined, _transition_out = undefined) constructor
 {
     step = _step
     transition_in = _transition_in
@@ -49,11 +49,11 @@ function sm_change_state(_new_state, _parameters = {})
 
 #region Example Transition Functions
     
-    /// @desc An example transition_in function for a state. Use this as a reference for creating your own.
+    /// @desc An example transition_out function for a state. Use this as a reference for creating your own.
     /// @arg {real, string} new_state Will be the ID of the state that will be transitioned to.
     /// @arg {struct} parameters Will be a struct containing any parameters from the call to sm_change_state(). Can be modified to pass additional/different parameters to the transition_in function of the new state.
     /// @ignore
-    function sm_example_transition_in(_new_state, _parameters)
+    function sm_example_transition_out(_new_state, _parameters)
     {
         some_variable = 0
         if (_new_state == "jump")
@@ -62,11 +62,11 @@ function sm_change_state(_new_state, _parameters = {})
             _parameters[$ "some_other_value"] = 4
     }
     
-    /// @desc An example transition_out function for a state. Use this as a reference for creating your own.
+    /// @desc An example transition_in function for a state. Use this as a reference for creating your own.
     /// @arg {real, string} old_state Will be the ID of the state that was transitioned from.
     /// @arg {struct} parameters Will be a struct containing any parameters from the call to sm_change_state(). May have been modified by the preceding transition_out function.
     /// @ignore
-    function sm_example_transition_out(_old_state, _parameters)
+    function sm_example_transition_in(_old_state, _parameters)
     {
         some_other_variable = 20
         if (_old_state == "walk")
