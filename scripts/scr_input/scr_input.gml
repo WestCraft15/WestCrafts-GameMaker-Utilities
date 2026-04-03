@@ -7,6 +7,9 @@ enum BIND_TYPE
 	GAMEPAD_AXIS_NEGATIVE, // eg. gp_axislh (left stick, left)
 }
 
+// An input macro just so you don't have to type global.input every time.
+#macro INPUT global.input
+
 /// @desc Creates an input.
 /// @arg {string} id The id of the input.
 /// @arg {array<struct.Bind>} default_binds The array of default binds for this input.
