@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_savefile",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_savefile",
+  "parent":{
+    "name":"Systems",
+    "path":"folders/WestCraft/Scripts/Systems.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

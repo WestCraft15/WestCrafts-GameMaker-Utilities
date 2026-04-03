@@ -39,3 +39,15 @@
     }
     
 #endregion Input
+
+#region Savefile
+    
+    // Whether to reate an uncompressed duplicate of each save. This is only for debugging, as the game will not read from these files. Also pretty prints the json for readability.
+    #macro SAVE_UNCOMPRESSED false
+
+    // The name of the player's save file. Will be appended with the corresponding save number and the ".sav" file extension.
+    #macro SAVE_NAME "savefile"
+    
+#endregion Savefile
+
+
