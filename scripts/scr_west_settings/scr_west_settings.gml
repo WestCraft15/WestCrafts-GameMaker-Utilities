@@ -42,11 +42,14 @@
 
 #region Savefile
     
-    // Whether to reate an uncompressed duplicate of each save. This is only for debugging, as the game will not read from these files. Also pretty prints the json for readability.
+    // Whether to create an uncompressed duplicate of each save. This is only for debugging, as the game will not read from these files. Also pretty prints the json for readability.
     #macro SAVE_UNCOMPRESSED false
 
     // The name of the player's save file. Will be appended with the corresponding save number and the ".sav" file extension.
     #macro SAVE_NAME "savefile"
+    
+    // Whether to show the saving icon by default when savefile_do_save is called.
+    #macro SHOW_SAVING_ICON true
     
 #endregion Savefile
 

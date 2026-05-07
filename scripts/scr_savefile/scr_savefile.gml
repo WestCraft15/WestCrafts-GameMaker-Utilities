@@ -1,5 +1,7 @@
-// TODO: Write JSDoc comments.
-
+///@desc Write a value to the global settings file. Functions similarly to `ini_write_real` and `ini_write_string`, but with no limitation on the variable type.
+///@arg {string} section The section of the save to write to.
+///@arg {string} key The key within the relevant section of the save to write to.
+///@arg {any} value The value to write to the relevant destination.
 function settings_save_write(_section, _key, _value)
 {
     with (obj_savefile_manager)
@@ -10,6 +12,10 @@ function settings_save_write(_section, _key, _value)
     }
 }
 
+///@desc Write a value to the player's current save file. Functions similarly to `ini_write_real` and `ini_write_string`, but with no limitation on the variable type.
+///@arg {string} section The section of the save to write to.
+///@arg {string} key The key within the relevant section of the save to write to.
+///@arg {any} value The value to write to the relevant destination.
 function player_save_write(_section, _key, _value)
 {
     with (obj_savefile_manager)
@@ -20,6 +26,11 @@ function player_save_write(_section, _key, _value)
     }
 }
 
+///@desc Read a value from the global settings file. Functions similarly to `ini_read_real` and `ini_read_string`, but with no limitation on the variable type.
+///@arg {string} section The section of the save to read from.
+///@arg {string} key The key within the relevant section of the save to read from.
+///@arg {any} default The value to return if a value is not found in the defined place.
+///@return {any} The value read from the file, or `default` if none is found.
 function settings_save_read(_section, _key, _default)
 {
     with (obj_savefile_manager)
@@ -31,6 +42,11 @@ function settings_save_read(_section, _key, _default)
     }
 }
 
+///@desc Read a value from the player's current save file. Functions similarly to `ini_read_real` and `ini_read_string`, but with no limitation on the variable type.
+///@arg {string} section The section of the save to read from.
+///@arg {string} key The key within the relevant section of the save to read from.
+///@arg {any} default The value to return if a value is not found in the defined place.
+///@return {any} The value read from the file, or `default` if none is found.
 function player_save_read(_section, _key, _default)
 {
     with (obj_savefile_manager)
@@ -42,7 +58,9 @@ function player_save_read(_section, _key, _default)
     }
 }
 
-function savefile_do_save(_silent = false)
+///@desc Write the settings and player save files to disk.
+///@arg {bool} [silent] Set to true to disable the save icon (or false to enable it). The default can be configured in `scr_west_settings`.
+function savefile_do_save(_silent = !SHOW_SAVING_ICON)
 {
     with (obj_savefile_manager)
     {
@@ -52,6 +70,7 @@ function savefile_do_save(_silent = false)
     }
 }
 
+///@desc Load the settings file from disk. You probably only want to call this once, at the start of the game.
 function savefile_load_settings()
 {
     with (obj_savefile_manager)
@@ -81,6 +100,8 @@ function savefile_load_settings()
     }
 }
 
+///@desc Load the player's save file from disk.
+///@arg {int} file_number The slot of the save file to read from. Will also be the slot written to by `savefile_do_save` until this function is called again.
 function savefile_load_player(_file_number)
 {
     with (obj_savefile_manager)
@@ -101,7 +122,7 @@ function savefile_load_player(_file_number)
             }
             catch (_error)
             {
-                show_message($"Player load failed. {_error.message}")
+                show_message($"Savefile load failed. {_error.message}")
                 player_save = {}
             }
             finally
