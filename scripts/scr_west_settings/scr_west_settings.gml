@@ -39,3 +39,13 @@
     }
     
 #endregion Input
+
+#region State Machines
+
+    // The suffix for all transition in functions.
+    #macro TRANSITION_IN_SUFFIX "__in"
+
+    // The suffix for all transition out functions.
+    #macro TRANSITION_OUT_SUFFIX "__out"
+
+#endregion State Machines

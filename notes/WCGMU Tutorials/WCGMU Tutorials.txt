@@ -1,0 +1,32 @@
+# State Machines
+
+The easiest way to make a state machine is to use the `sm_init` function. It
+takes 2 arguments, being the prefix for all the functions to include, and the
+name of the default state. `sm_init` will automatically find all state
+functions in the project that correspond to that state machine and add them.
+
+To add states, simply create functions that begin with the same string, ie.
+`state_player_normal`, `state_player_jump`, etc. Then, when calling `sm_init`,
+pass "state_player_" as the first argument and "normal" as the second. This
+will create a state machine containing two states; "normal" and "jump", and
+set the current state to "normal".
+
+To actually run the code associated with the states, simply use `sm_process`
+somewhere within the object's step function.
+
+To switch between states, call `sm_change_state` with the first argument being
+the name of the new state and the second argument optionally being a struct of
+values to pass to the transition functions.
+
+The afforementioned transition functions are an optional addition to your
+states. These can be created for any state by appending "__in" or "__out" to
+the function name (these postfixes can be changed in
+[scr_west_settings](project://scr_west_settings)). For example, a function
+named `state_player_jump__in` would be executed whenever the state is changed
+to "jump". The __out function behaves similarly, but would be executed when
+the state is changed *from* "jump". The __in and __out functions both recieve
+the struct passed to `sm_change_state`, and the __out function may modify the
+struct before it is passed to the __in function.
+
+For example state functions, see the bottom of the
+[scr_state_machine](project://scr_state_machine) script.

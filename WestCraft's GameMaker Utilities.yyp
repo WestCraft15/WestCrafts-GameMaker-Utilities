@@ -33,6 +33,7 @@
   },
   "name":"WestCraft's GameMaker Utilities",
   "resources":[
+    {"id":{"name":"WCGMU Tutorials","path":"notes/WCGMU Tutorials/WCGMU Tutorials.yy",},},
     {"id":{"name":"WestCraft's GameMaker Utilities License","path":"notes/WestCraft's GameMaker Utilities License/WestCraft's GameMaker Utilities License.yy",},},
     {"id":{"name":"obj_input_manager","path":"objects/obj_input_manager/obj_input_manager.yy",},},
     {"id":{"name":"obj_moving_platform_boundary","path":"objects/obj_moving_platform_boundary/obj_moving_platform_boundary.yy",},},
@@ -48,6 +49,8 @@
     {"id":{"name":"scr_math_utils","path":"scripts/scr_math_utils/scr_math_utils.yy",},},
     {"id":{"name":"scr_state_machine","path":"scripts/scr_state_machine/scr_state_machine.yy",},},
     {"id":{"name":"scr_west_settings","path":"scripts/scr_west_settings/scr_west_settings.yy",},},
+    {"id":{"name":"state_player_jump","path":"scripts/state_player_jump/state_player_jump.yy",},},
+    {"id":{"name":"state_player_normal","path":"scripts/state_player_normal/state_player_normal.yy",},},
     {"id":{"name":"spr_moving_platform_boundary","path":"sprites/spr_moving_platform_boundary/spr_moving_platform_boundary.yy",},},
     {"id":{"name":"spr_moving_platform","path":"sprites/spr_moving_platform/spr_moving_platform.yy",},},
     {"id":{"name":"spr_platform","path":"sprites/spr_platform/spr_platform.yy",},},
