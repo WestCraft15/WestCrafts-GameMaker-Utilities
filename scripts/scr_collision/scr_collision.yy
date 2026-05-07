@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_collision",
   "parent":{
-    "name":"Utilities",
-    "path":"folders/WestCraft/Scripts/Utilities.yy",
+    "name":"Systems",
+    "path":"folders/WestCraft/Scripts/Systems.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
