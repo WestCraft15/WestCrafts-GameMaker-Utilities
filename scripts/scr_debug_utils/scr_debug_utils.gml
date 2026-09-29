@@ -8,29 +8,29 @@ enum SEVERITY
     FATAL,
 }
 
-/// @desc A basic assertion. Outputs a message to the log depending on the severity, and throws an exception if severity is set to SEVERITY.FATAL.
-/// @arg {bool} condition The condition to check. If the result is falsy, outputs the message and possibly throws an error.
-/// @arg {string} message The message to print to the log. Also the message used when throwing an error.
-/// @arg {real} severity The severity of the error. Defaults to SEVERITY.FATAL.
-/// @return {bool} Returns true if the condition is true, false otherwise.
+/// @desc A basic assertion. Fails if the `condition` is false, which prints a message and throws an exception if `severity` is set to SEVERITY.FATAL.
+/// @arg {bool} condition The condition to check. If this is false, prints `message` and possibly throws an error.
+/// @arg {string} message The message to print to the log. Also used when throwing an error.
+/// @arg {real} severity The severity of the assertion. Defaults to `SEVERITY.FATAL`.
+/// @return {bool} Returns `condition`.
 function assert(_condition, _message, _severity = SEVERITY.FATAL)
 {
-    if (_condition)
+    if (!_condition)
     {
         print(_message, _severity)
         
         if (_severity >= SEVERITY.FATAL)
             throw _message
         
-        return true
+        return false
     }
     
-    return false
+    return true
 }
 
 /// @desc A general purpose print function for logging and debugging. Also used for outputting warnings and errors.
-/// @arg {string} message The message to print. Will be prepended with the severity if it is higher than SEVERITY.DEBUG.
-/// @arg {real} severity The severity of the error. Defaults to SEVERITY.DEBUG. Will not print the message if this is lower than MINIMUM_SEVERITY.
+/// @arg {string} message The message to print. Will be prepended with `severity` if it is higher than `SEVERITY.DEBUG`.
+/// @arg {real} severity The severity of the message. Defaults to `SEVERITY.DEBUG`. The message will not be printed if this is lower than `MINIMUM_SEVERITY`.
 function print(_message, _severity = SEVERITY.DEBUG)
 {
     if (_severity < MINIMUM_SEVERITY)
@@ -39,19 +39,19 @@ function print(_message, _severity = SEVERITY.DEBUG)
     switch (_severity)
     {
         case SEVERITY.DEBUG:
-            print(_message)
+            show_debug_message(_message)
             break
         case SEVERITY.INFO:
-            print("(INFO) " + _message)
+            show_debug_message("(INFO) " + _message)
             break
         case SEVERITY.WARNING:
-            print("(WARN) " + _message)
+            show_debug_message("(WARN) " + _message)
             break
         case SEVERITY.ERROR:
-            print("(ERROR) " + _message)
+            show_debug_message("(ERROR) " + _message)
             break
         case SEVERITY.FATAL:
-            print("(FATAL) " + _message)
+            show_debug_message("(FATAL) " + _message)
             break
     }
 }
